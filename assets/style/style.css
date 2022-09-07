@@ -1,0 +1,160 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(250, 250, 250);
+}
+
+.mainContent{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 90px;
+}
+
+.mainHeader{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    box-shadow: 0 0 10px rgb(236, 236, 236);
+    width: 100%;
+    position: fixed;
+}
+
+.mainHeader h1{
+    font-weight: 700;
+    font-family: monospace;
+    font-size: 30px;
+    color: rgb(77, 77, 77);
+}
+
+.addTask{
+    width: 800px;
+    padding: 45px;
+    background-color: white;
+    box-shadow: 0 5px 32px rgb(228, 228, 228);
+}
+
+.addTask h2{
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.inputs{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+#newTask{
+    width: 45%;
+    padding: 15px;
+    outline: none;
+    border: none;
+    background-color: aliceblue;
+}
+
+#newPriority{
+    width: 45%;
+    padding: 15px;
+    outline: none;
+    border: none;
+    background-color: aliceblue;
+}
+
+select {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-padding-end: 20px;
+    -moz-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -moz-padding-start: 2px;
+    background-repeat: no-repeat;
+    border: 1px solid #AAA;
+    border-radius: 2px;
+    color: #555;
+    font-size: inherit;
+    margin: 0;
+    overflow: hidden;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#addNewTaskBtn{
+    background-color: blue;
+    color: white;
+    margin-top: 30px;
+    border: none;
+    padding: 20px;
+    width: 100%;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+
+#addNewTaskBtn:hover{
+    background-color: rgb(0, 81, 255);
+}
+
+.toDoSection{
+    width: 800px;
+    margin-top: 50px;
+    padding: 45px;
+    background-color: white;
+    box-shadow: 0 5px 32px rgb(228, 228, 228);
+}
+
+.toDoSection h2{
+    font-weight: 700;
+    font-size: 25px;
+}
+
+#toDoList{
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.toDo{
+    background-color: aliceblue;
+    padding: 15px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 18px;
+    color: rgb(34, 34, 34);
+    display: flex;
+    justify-content: space-between;
+    transition: 0.3s;
+}
+
+.priority{
+    border-radius: 5px;
+    width: 50px;
+    height: 15px;
+    background-color: gray;
+}
+
+.priorityAndDelete{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+#deleteIcon{
+    cursor: pointer;
+    opacity: 70%;
+    transition: 0.3s;
+}
+
+#deleteIcon:hover{
+    opacity: 90%;
+}
