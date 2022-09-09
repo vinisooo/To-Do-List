@@ -11,17 +11,15 @@ function addTask(){
     
     let newTaskObj = {};
 
-    if (taskName.value != false && priorityLvl.value != false){
+    if (taskName.value != false && priorityLvl.value != false && priorityLvl.value != "noValue"){
         tasksList.innerHTML = "";
+
         newTaskObj["titulo"] = taskName.value;
         newTaskObj["tipo"] = priorityLvl.value;
-        
+        taskName.value = "";
+        priorityLvl.value = priorityLvl.children[0];
 
         tasks.push(newTaskObj);
-
-        for (let i = 0; i < tasks.length; i++){
-            newTaskObj["id"] = i;
-        }
 
         orderArray(tasks);
         
@@ -44,11 +42,10 @@ function deleteTask(event){
 
     for (let i = 0; i < tasks.length; i++){
         if (taskIdNum == tasks[i].id){
-            tasks.shift(tasks[i]);
-
+            tasks[i].id = "deleted";
             tasksList.innerHTML = "";
+
             orderArray(tasks);
-        
             createElementList(orderedTasks);
         }
     }
@@ -58,40 +55,53 @@ function createElementList(list){
     if (list.length > 0){
 
         for (let i = 0; i <list.length; i++){
-
-            let newTask = document.createElement("li");
-            newTask.classList.add("toDo");
-            newTask.classList.add(`id_${i}`);
             
-            let deleteBtn = document.createElement("button");
-            deleteBtn.classList.add("delete");
-            deleteBtn.innerText = "Excluir";
+            if (list[i].id != "deleted"){
 
-            deleteBtn.addEventListener("click", deleteTask)
+                list[i]["id"] = i;
 
-            let priorityLvlSymbol = document.createElement("div");
-            
-            priorityLvlSymbol.classList.add("priority");
-            if (list[i].tipo == "normal"){
-                priorityLvlSymbol.style.background = "green";
-                priorityLvlSymbol.title = "Prioridade: Normal"
+                let newTask = document.createElement("li");
+                newTask.classList.add("toDo");
+                newTask.classList.add(`id_${i}`);
+                
+                let deleteBtn = document.createElement("button");
+                deleteBtn.classList.add("delete");
 
-            }if (list[i].tipo == "prioritario"){
-                priorityLvlSymbol.style.background = "orange";
-                priorityLvlSymbol.title = "Prioridade: Prioritario"
+                deleteBtn.addEventListener("click", deleteTask)
 
-            }if (list[i].tipo == "urgente"){
-                priorityLvlSymbol.style.background = "red";
-                priorityLvlSymbol.title = "Prioridade: Urgente"
+                let priorityLvlSymbol = document.createElement("div");
+
+
+                priorityLvlSymbol.classList.add("priority");
+                if (list[i].tipo == "normal"){
+                    priorityLvlSymbol.style.background = "green";
+                    priorityLvlSymbol.title = "Prioridade: Normal"
+
+                }if (list[i].tipo == "prioritario"){
+                    priorityLvlSymbol.style.background = "orange";
+                    priorityLvlSymbol.title = "Prioridade: Prioritario"
+
+                }if (list[i].tipo == "urgente"){
+                    priorityLvlSymbol.style.background = "red";
+                    priorityLvlSymbol.title = "Prioridade: Urgente"
+                }
+
+                newTask.innerText = list[i].titulo;
+
+                const priorityAndDelete = document.createElement("div");
+                const deleteIcon = document.createElement("img");
+                deleteIcon.classList.add("deleteIcon");
+                deleteIcon.src = "../assets/images/deleteIcon.webp";
+
+                deleteBtn.appendChild(deleteIcon);
+                priorityAndDelete.classList.add("rightTaskSide");
+                priorityAndDelete.appendChild(priorityLvlSymbol);
+                priorityAndDelete.appendChild(deleteBtn);
+
+                newTask.appendChild(priorityAndDelete);
+                tasksList.appendChild(newTask);
+                orderedTasks = [];
             }
-
-            newTask.innerText = list[i].titulo;
-
-            
-            newTask.appendChild(priorityLvlSymbol);
-            newTask.appendChild(deleteBtn);
-            tasksList.appendChild(newTask);
-            orderedTasks = [];
             
         }
     }

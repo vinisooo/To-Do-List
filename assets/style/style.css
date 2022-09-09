@@ -27,7 +27,7 @@ body{
 
 #searchInput{
     border: none;
-    background-color: aliceblue;
+    background-color: #f8f8fa;
     padding: 10px;
     outline: none;
     color: #555;
@@ -41,7 +41,7 @@ body{
     align-items: center;
     justify-content: center;
     height: 100%;
-    background-color: aliceblue;
+    background-color: #f8f8fa;
     width: 10%;
     cursor: pointer;
 }
@@ -56,17 +56,23 @@ body{
 }
 
 .mainHeaderContent{
-    width: 850px;
+    width: 860px;
     display: flex;
     justify-content: space-between;
 }
 
+.headerLogo{
+    display: flex;
+    align-items: center;
+    transform: translateX(-32px);
+    gap: 20px;
+    cursor: pointer;
+}
 
 .mainHeader h1{
     font-weight: 700;
-    font-family: monospace;
     font-size: 30px;
-    color: rgb(77, 77, 77);
+    color: #2153ff;
 }
 
 .mainContent{
@@ -87,6 +93,7 @@ body{
 .addTask h2{
     font-weight: 700;
     font-size: 25px;
+    color: #001a5e;
 }
 
 .inputs{
@@ -101,7 +108,7 @@ body{
     padding: 15px;
     outline: none;
     border: none;
-    background-color: aliceblue;
+    background-color: #f8f8fa;
 }
 
 #newPriority{
@@ -109,7 +116,7 @@ body{
     padding: 15px;
     outline: none;
     border: none;
-    background-color: aliceblue;
+    background-color: #f8f8fa;
 }
 
 select {
@@ -135,7 +142,7 @@ select {
 }
 
 #addNewTaskBtn{
-    background-color: blue;
+    background-color: #2153ff;
     color: white;
     margin-top: 30px;
     border: none;
@@ -147,7 +154,7 @@ select {
 
 
 #addNewTaskBtn:hover{
-    background-color: rgb(0, 81, 255);
+    background-color: #4671ff;
 }
 
 .toDoSection{
@@ -161,6 +168,7 @@ select {
 .toDoSection h2{
     font-weight: 700;
     font-size: 25px;
+    color: #001a5e;
 }
 
 #toDoList{
@@ -204,5 +212,37 @@ select {
 }
 
 #deleteIcon:hover{
+    opacity: 90%;
+}
+
+.rightTaskSide{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.delete{
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.delete:hover{
+    background-color: white;
+}
+
+.deleteIcon{
+    width: 20px;
+    opacity: 50%;
+    transition: 0.4s;
+}
+
+.deleteIcon:hover{
     opacity: 90%;
 }
