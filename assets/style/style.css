@@ -1,8 +1,72 @@
 body{
     font-family: 'Roboto', sans-serif;
-    display: flex;
-    flex-direction: column;
     background-color: rgb(250, 250, 250);
+}
+
+
+
+.mainHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 15px;
+    position: fixed;
+    box-shadow: 0 0 5px rgb(230, 230, 230);
+}
+
+
+.searchBox{
+    display: flex;
+    background-color: aliceblue;
+    align-items: center;
+    overflow: hidden;
+}
+
+#searchInput{
+    border: none;
+    background-color: aliceblue;
+    padding: 10px;
+    outline: none;
+    color: #555;
+    width: 250px;
+    font-weight: 500;
+}
+
+#enterSearch{
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: aliceblue;
+    width: 10%;
+    cursor: pointer;
+}
+
+#enterSearch img{
+    opacity: 50%;
+    transition: 0.3s;
+}
+
+#enterSearch img:hover{
+    opacity: 70%;
+}
+
+.mainHeaderContent{
+    width: 850px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.mainHeader h1{
+    font-weight: 700;
+    font-family: monospace;
+    font-size: 30px;
+    color: rgb(77, 77, 77);
 }
 
 .mainContent{
@@ -10,23 +74,7 @@ body{
     display: flex;
     flex-direction: column;
     padding-top: 90px;
-}
-
-.mainHeader{
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    box-shadow: 0 0 10px rgb(236, 236, 236);
-    width: 100%;
-    position: fixed;
-}
-
-.mainHeader h1{
-    font-weight: 700;
-    font-family: monospace;
-    font-size: 30px;
-    color: rgb(77, 77, 77);
+    align-items: center;
 }
 
 .addTask{
