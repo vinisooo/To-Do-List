@@ -1,9 +1,14 @@
 body{
     font-family: 'Roboto', sans-serif;
     background-color: rgb(250, 250, 250);
+    animation: displayAll 1s ease;
 }
 
-
+.no-task-message{
+    text-align: center;
+    font-weight: 500;
+    color: grey;
+}
 
 .mainHeader{
     display: flex;
@@ -12,8 +17,9 @@ body{
     background-color: white;
     flex-wrap: wrap;
     width: 100%;
-    padding: 15px;
+    padding: 20px;
     position: fixed;
+    top: 0;
     box-shadow: 0 0 5px rgb(230, 230, 230);
 }
 
@@ -33,6 +39,7 @@ body{
     color: #555;
     width: 250px;
     font-weight: 500;
+    max-width: 40vw;
 }
 
 #enterSearch{
@@ -57,7 +64,10 @@ body{
 
 .mainHeaderContent{
     width: 860px;
+    padding: 0 20px;
     display: flex;
+    box-sizing: border-box;
+    max-width: 100%;
     justify-content: space-between;
 }
 
@@ -79,22 +89,27 @@ body{
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    padding: 0 20px;
     padding-top: 90px;
     align-items: center;
 }
 
 .addTask{
-    width: 800px;
+    width: 860px;
+    box-sizing: border-box;
+    padding: 0 20px;
     padding: 45px;
     background-color: white;
     box-shadow: 0 5px 32px rgb(228, 228, 228);
+    max-width: 100%;
 }
 
-.addTask h2{
+.addTask > h2{
     font-weight: 700;
     font-size: 25px;
     color: #001a5e;
 }
+
 
 .inputs{
     width: 100%;
@@ -105,6 +120,7 @@ body{
 
 #newTask{
     width: 45%;
+    box-sizing: border-box;
     padding: 15px;
     outline: none;
     border: none;
@@ -158,14 +174,20 @@ select {
 }
 
 .toDoSection{
-    width: 800px;
+    width: 860px;
+    box-sizing: border-box;
     margin-top: 50px;
+    max-width: 100%;
     padding: 45px;
     background-color: white;
     box-shadow: 0 5px 32px rgb(228, 228, 228);
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.toDoSection h2{
+.toDoSection > h2{
     font-weight: 700;
     font-size: 25px;
     color: #001a5e;
@@ -174,6 +196,7 @@ select {
 #toDoList{
     margin-top: 30px;
     gap: 20px;
+    width: 100%;
 }
 
 .toDo{
@@ -184,12 +207,14 @@ select {
     display: flex;
     align-items: center;
     margin-top: 10px;
+    width: 100%;
     font-weight: 600;
     font-size: 18px;
     color: rgb(34, 34, 34);
     display: flex;
     justify-content: space-between;
     transition: 0.3s;
+    box-sizing: border-box;
 }
 
 .priority{
@@ -245,4 +270,62 @@ select {
 
 .deleteIcon:hover{
     opacity: 90%;
+}
+
+.hidden{
+    display: none;
+}
+
+
+
+@media (max-width: 700px){
+
+    .addTask{
+        padding: 30px;
+    }
+
+    .mainContent{
+        padding-top: 120px;
+    }
+
+    .form .inputs{
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+
+    #newTask{
+        width: 100%;
+    }
+
+    #addNewTaskBtn{
+        width: 100%;
+    }
+
+    #newPriority{
+        width: 100%;
+    }
+
+    .mainHeaderContent{
+        justify-content: space-around;
+    }
+
+    .headerLogo .title{
+        display: none;
+    }
+
+    .toDoSection{
+        padding: 30px;
+    }
+}
+
+@keyframes displayAll {
+    0%{
+        opacity: 0;
+        transform: translateX(100vw);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
 }

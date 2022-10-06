@@ -7,6 +7,18 @@ const priorityLvl = document.getElementById("newPriority");
 
 const tasksList = document.getElementById("toDoList");
 
+
+function getLocateStorage(){
+    const localStorageTasks = localStorage.getItem("tasks");
+
+    if (localStorageTasks){
+        const tasksToArr = JSON.parse(localStorageTasks);
+        tasks = [...tasksToArr]
+        createElementList(tasksToArr);
+    }
+}
+getLocateStorage();
+// localStorage.clear()
 function addTask(){
     
     let newTaskObj = {};
@@ -17,16 +29,16 @@ function addTask(){
         newTaskObj["titulo"] = taskName.value;
         newTaskObj["tipo"] = priorityLvl.value;
         taskName.value = "";
-        priorityLvl.value = priorityLvl.children[0];
+        priorityLvl.value = priorityLvl[0].value="noValue";
 
         tasks.push(newTaskObj);
 
         orderArray(tasks);
-        
+
+        const localStorageTasks = JSON.stringify(orderedTasks);
+        localStorage.setItem("tasks",localStorageTasks);
+
         createElementList(orderedTasks);
-        
-    }else{
-        alert("O campo está vazio")
     }
 
 }
@@ -38,7 +50,6 @@ function deleteTask(event){
     let task = delBtn.closest("li");
     let taskId = task.classList[1];
     let taskIdNum = parseInt(taskId.substring(3));
-    console.log(taskIdNum);
 
     for (let i = 0; i < tasks.length; i++){
         if (taskIdNum == tasks[i].id){
@@ -47,12 +58,17 @@ function deleteTask(event){
 
             orderArray(tasks);
             createElementList(orderedTasks);
+
+            const localStorageTasks = JSON.stringify(tasks);
+            localStorage.setItem("tasks", localStorageTasks);
         }
     }
 }
 
 function createElementList(list){
     if (list.length > 0){
+
+
 
         for (let i = 0; i <list.length; i++){
             
@@ -138,7 +154,7 @@ function search(){
         for (element of tasks){
             if (searchFor == element.titulo.toLowerCase()){
                 
-                tasksList.innerHTML = ""
+                tasksList.innerHTML = "";
                 console.log("elemento encontrado");
                 searchResult.push(element);
     
