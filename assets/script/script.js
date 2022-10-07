@@ -107,7 +107,7 @@ function createElementList(list){
                 const priorityAndDelete = document.createElement("div");
                 const deleteIcon = document.createElement("img");
                 deleteIcon.classList.add("deleteIcon");
-                deleteIcon.src = "/assets/images/deleteIcon.webp";
+                deleteIcon.src = "./assets/images/deleteIcon.webp";
 
                 deleteBtn.appendChild(deleteIcon);
                 priorityAndDelete.classList.add("rightTaskSide");
